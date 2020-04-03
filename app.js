@@ -30,9 +30,8 @@ app.get("/posts/:postName", function(req, res) {
   posts.forEach(function(post) {
     const requiredTitle = _.lowerCase(req.params.postName);
     const postedTitle = _.lowerCase(post.postTitle)
-    const postedInfo = post.postInfo
     if (requiredTitle === postedTitle) {
-      res.render("post",{postedTitle: postedTitle, postedInfo: postedInfo})
+      res.render("post",{title: post.postTitle, content: post.postInfo})
       }
   })
 })
